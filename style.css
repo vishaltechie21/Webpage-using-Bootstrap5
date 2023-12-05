@@ -1,0 +1,22 @@
+.carousel-inner img{
+    width: 100%;
+    height: 80vh;
+}
+
+.about, .services{
+    font-family: 'Dancing Script', cursive;
+}
+
+.imgMan{
+    height: 510px;
+    object-fit: cover;
+    object-position: center ;
+    /* width: 200px; */
+}
+
+.card-body img{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    object-position: center ;
+}
