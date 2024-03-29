@@ -3,10 +3,13 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (event) => {
   event.preventDefault();
   deferredPrompt = event;
-  // Check if the app is already installed
-  if (!isAppInstalled()) {
-    showAddToHomeScreenButton();
-  }
+  showAddToHomeScreenButton();
+});
+
+window.addEventListener('appinstalled', (event) => {
+  // Hide the button once the app is installed
+  const addToHomeButton = document.querySelector('.add-to-home-button');
+  addToHomeButton.style.display = 'none';
 });
 
 function showAddToHomeScreenButton() {
@@ -27,12 +30,4 @@ function addToHomeScreen() {
       deferredPrompt = null;
     });
   }
-}
-
-function isAppInstalled() {
-  // Check if the current device supports the beforeinstallprompt event
-  if (!window.matchMedia('(display-mode: standalone)').matches && !window.navigator.standalone) {
-    return false;
-  }
-  return true;
 }
